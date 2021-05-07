@@ -1,115 +1,112 @@
 #include "motor.h"
 
+const int MR = 1; //Motor right
+const int ML = 2; //Motor left
+const int S=0; //Stop
+const int F=1; //Forward
+const int B=2; //Backward
+
 void setupMotor()
 {
   pinMode(LEFT_MOTOR_FORWARD, OUTPUT);
   pinMode(LEFT_MOTOR_BACK, OUTPUT); 
   pinMode(RIGHT_MOTOR_FORWARD, OUTPUT); 
   pinMode(RIGHT_MOTOR_BACK, OUTPUT); 
-  pinMode(RIGTH_MOTOR_ON, OUTPUT); 
+  pinMode(RIGHT_MOTOR_ON, OUTPUT); 
   pinMode(LEFT_MOTOR_ON, OUTPUT); 
-  digitalWrite(LEFT_MOTOR_ON, HIGH); 
-  digitalWrite(RIGTH_MOTOR_ON, HIGH); 
+}
+
+void motor(int motor, int direction, int speed)
+{
+   if(motor == MR){
+     switch(direction){
+      case S: 
+        digitalWrite(RIGHT_MOTOR_FORWARD,LOW);
+        digitalWrite(RIGHT_MOTOR_BACK,LOW); 
+        analogWrite(RIGHT_MOTOR_ON,0); 
+        break;
+      case F:      
+        digitalWrite(RIGHT_MOTOR_FORWARD,HIGH);
+        digitalWrite(RIGHT_MOTOR_BACK,LOW);   
+        analogWrite(RIGHT_MOTOR_ON,speed);    
+        break;  
+      case B:
+        digitalWrite(RIGHT_MOTOR_BACK,HIGH);  
+        digitalWrite(RIGHT_MOTOR_FORWARD,LOW);  
+        analogWrite(RIGHT_MOTOR_ON,speed);          
+     }        
+   }else{
+     switch(direction){
+      case S: 
+        digitalWrite(LEFT_MOTOR_FORWARD,LOW);
+        digitalWrite(LEFT_MOTOR_BACK,LOW);  
+        analogWrite(LEFT_MOTOR_ON,0); 
+        break;
+      case F:      
+        digitalWrite(LEFT_MOTOR_FORWARD,HIGH);
+        digitalWrite(LEFT_MOTOR_BACK,LOW);   
+        analogWrite(LEFT_MOTOR_ON,speed);    
+        break;  
+      case B:
+        digitalWrite(LEFT_MOTOR_BACK,HIGH);  
+        digitalWrite(LEFT_MOTOR_FORWARD,LOW);  
+        analogWrite(LEFT_MOTOR_ON,speed);          
+     }             
+   }
 }
 
 void run(int speed)    
 {
-  digitalWrite(RIGHT_MOTOR_FORWARD,HIGH);  
-  digitalWrite(LEFT_MOTOR_FORWARD,HIGH); 
-  digitalWrite(RIGHT_MOTOR_BACK,LOW);   
-  digitalWrite(LEFT_MOTOR_BACK,LOW);
-
-  analogWrite(RIGHT_MOTOR_FORWARD,speed);
-  analogWrite(LEFT_MOTOR_FORWARD,speed);
-  analogWrite(RIGHT_MOTOR_BACK,0);   
-  analogWrite(LEFT_MOTOR_BACK,0);
+  motor(MR, F, speed);
+  motor(ML, F, speed);    
 
   setLeds(LOW, LOW);
 }
 
 void stop()    
 {
-  digitalWrite(LEFT_MOTOR_BACK, LOW);
-  digitalWrite(LEFT_MOTOR_FORWARD, LOW);
-  digitalWrite(RIGHT_MOTOR_FORWARD, LOW);
-  digitalWrite(RIGHT_MOTOR_BACK, LOW);
+  motor(MR, S, 0);
+  motor(ML, S, 0);  
 
   setLeds(HIGH, HIGH);
 }
 
 void left(int speed)   
 {
-  digitalWrite(RIGHT_MOTOR_FORWARD,HIGH);	
-  digitalWrite(RIGHT_MOTOR_BACK,LOW);
-  digitalWrite(LEFT_MOTOR_FORWARD,LOW);   
-  digitalWrite(LEFT_MOTOR_BACK,LOW); 
+  motor(MR, F, speed);
+  motor(ML, S, 0);  
 
-  analogWrite(RIGHT_MOTOR_FORWARD,speed); 
-  analogWrite(RIGHT_MOTOR_BACK,0);
-  analogWrite(LEFT_MOTOR_FORWARD,0); 
-  analogWrite(LEFT_MOTOR_BACK,0); 
-  
-  setLeds(HIGH, LOW);
+  setLeds(LOW, HIGH);
 }
 
 void spin_left(int speed)   
 {
-  digitalWrite(RIGHT_MOTOR_FORWARD,HIGH);
-  digitalWrite(LEFT_MOTOR_BACK,HIGH);
-  digitalWrite(RIGHT_MOTOR_BACK,LOW);    
-  digitalWrite(LEFT_MOTOR_FORWARD,LOW);  
-  
-  analogWrite(RIGHT_MOTOR_FORWARD,speed);
-  analogWrite(LEFT_MOTOR_BACK,speed);
-  analogWrite(LEFT_MOTOR_FORWARD,0); 
-  analogWrite(RIGHT_MOTOR_BACK,0);
+  motor(MR, F, speed);
+  motor(ML, B, speed); 
  
-  setLeds(HIGH, LOW);
+  setLeds(LOW, HIGH);
 }
 
 void right(int speed)    
-{
-  digitalWrite(LEFT_MOTOR_FORWARD,HIGH);
-  digitalWrite(LEFT_MOTOR_BACK,LOW);
-  digitalWrite(RIGHT_MOTOR_FORWARD,LOW);   
-  digitalWrite(RIGHT_MOTOR_BACK,LOW);
+{  
+  motor(MR, S, 0);
+  motor(ML, F, speed);  
 
-  analogWrite(LEFT_MOTOR_FORWARD,speed);
-  analogWrite(RIGHT_MOTOR_FORWARD,0); 
-  analogWrite(RIGHT_MOTOR_BACK,0);    
-  analogWrite(LEFT_MOTOR_BACK,0);
-
-  setLeds(LOW, HIGH);
+  setLeds(HIGH, LOW);
 }
 
 void spin_right(int speed)    
 {
-  digitalWrite(LEFT_MOTOR_FORWARD,HIGH);
-  digitalWrite(RIGHT_MOTOR_BACK,HIGH);
-  digitalWrite(RIGHT_MOTOR_FORWARD,LOW);  
-  digitalWrite(LEFT_MOTOR_BACK,LOW);
+  motor(MR, B, speed);
+  motor(ML, F, speed); 
 
-  analogWrite(LEFT_MOTOR_FORWARD,speed);
-  analogWrite(RIGHT_MOTOR_BACK,speed);  
-  analogWrite(RIGHT_MOTOR_FORWARD,0);        
-  analogWrite(LEFT_MOTOR_BACK,0);
-
-  setLeds(LOW, HIGH);
+  setLeds(HIGH, LOW);
 }
 
 void back(int speed)    
 {
-  digitalWrite(RIGHT_MOTOR_BACK,HIGH);
-  digitalWrite(LEFT_MOTOR_BACK,HIGH);
-  digitalWrite(RIGHT_MOTOR_FORWARD,LOW); 
-  digitalWrite(LEFT_MOTOR_FORWARD,LOW);
+   motor(MR, B, speed);
+   motor(ML, B, speed); 
  
-  analogWrite(RIGHT_MOTOR_FORWARD,0);
-
-  analogWrite(RIGHT_MOTOR_BACK,speed);
-  analogWrite(LEFT_MOTOR_BACK,speed); 
-  analogWrite(RIGHT_MOTOR_FORWARD,0);
-  analogWrite(LEFT_MOTOR_FORWARD,0);
- 
-  setLeds(LOW, HIGH);
+  setLeds(HIGH, HIGH);
 }

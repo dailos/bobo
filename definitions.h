@@ -51,7 +51,7 @@ const int LEFT_MOTOR_FORWARD=7;
 const int RIGHT_MOTOR_FORWARD=9;       
 const int RIGHT_MOTOR_BACK=8;   
 
-const int RIGTH_MOTOR_ON=10;                                  
+const int RIGHT_MOTOR_ON=10;                                  
 const int LEFT_MOTOR_ON=5;  
  
 #endif

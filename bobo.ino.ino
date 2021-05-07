@@ -37,7 +37,7 @@ void loop()
 
 void remoteMode()
 {  
-  const int speed = 200;
+  const int speed = 150;
   switch (_state_)
   {    
     case STOP: stop(); break;
@@ -54,7 +54,7 @@ void remoteMode()
 
 void obstacleAvoidingMode()
 {
-  const int speed = 180;
+  const int speed = 100;
   int distance = getDistance();
   if (distance < 38) 
   {
@@ -74,7 +74,7 @@ void obstacleAvoidingMode()
 
 void followLineMode()
 {
-  const int speed = 150;
+  const int speed = 80;
   int RS = digitalRead(RIGHT_VERTICAL_IR_SENSOR);
   int LS = digitalRead(LEFT_VERTICAL_IR_SENSOR);
 
@@ -90,7 +90,7 @@ void followLineMode()
 
 void followMode()
 {
-  const int speed = 150;
+  const int speed = 100;
   int RS = digitalRead(RIGHT_HORIZONTAL_IR_SENSOR);
   int LS = digitalRead(LEFT_HORIZONTAL_IR_SENSOR);
   if (LS == LOW && RS == LOW)

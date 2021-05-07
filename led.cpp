@@ -1,8 +1,5 @@
 #include "led.h"
 
-int RIGHTLED=4;
-int LEFTLED=3;
-
 void setupLed()
 {
   pinMode(LEFTLED, OUTPUT);

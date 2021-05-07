@@ -1,7 +1,5 @@
 #include "buzzer.h"
 
-int BUZZER = 12;
-
 void setupBuzzer() {
   pinMode(BUZZER, OUTPUT);
   digitalWrite(BUZZER, LOW);

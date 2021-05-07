@@ -2,9 +2,10 @@
 #define KEY_H
 
 #include "Arduino.h"
+#include "definitions.h"
 #include "buzzer.h"
 
-void setupKey();
-void checkMode(int &mode);
+void setupKey(void);
+void checkKey(void);
 
 #endif

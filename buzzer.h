@@ -2,11 +2,12 @@
 #define BUZZER_H
 
 #include "Arduino.h"
+#include "definitions.h"
 
-void setupBuzzer();
+void setupBuzzer(void);
 void buzzFor(int miliseconds);
-void disableBuzzer();
+void disableBuzzer(void);
 void ModeBEEP(int mode);
-void BeepOnOffMode();
+void BeepOnOffMode(void);
 
 #endif

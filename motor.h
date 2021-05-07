@@ -1,24 +1,19 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-#include "definitions.h"
 #include "Arduino.h"
+#include "definitions.h"
 #include "led.h"
 
-void setupMotor();
+void setupMotor(void);
 void stateControl(int state);
 
-void run();
-void stop();
-void left();
-void spin_left();  
-void right();
-void spin_right();
-void back();
-
-void tckrunspeed();
-void tckbrake();
-void tckleftspeed();
-void tckrightspeed();
+void run(int speed);
+void stop(void);
+void left(int speed);
+void spin_left(int speed);  
+void right(int speed);
+void spin_right(int speed);
+void back(int speed);
 
 #endif

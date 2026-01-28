@@ -1,10 +1,11 @@
 #ifndef DISTANCESENSOR_H
 #define DISTANCESENSOR_H
 
-#include "Arduino.h"
-#include "definitions.h"
+#include "bobo.h"
 
 void setupDistanceSensors(void);
 float getDistance(void);
+int isThereObstacle();
+int isThereALine();
 
 #endif

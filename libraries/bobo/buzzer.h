@@ -1,8 +1,7 @@
 #ifndef BUZZER_H
 #define BUZZER_H
 
-#include "Arduino.h"
-#include "definitions.h"
+#include "bobo.h"
 
 void setupBuzzer(void);
 void buzzFor(int miliseconds);

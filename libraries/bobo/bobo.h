@@ -2,6 +2,12 @@
 #define DEFINITIONS_H
 
 #include "Arduino.h"
+#include "libraries/bobo/motor.h"
+#include "libraries/bobo/led.h"
+#include "libraries/bobo/buzzer.h"
+#include "libraries/bobo/key.h"
+#include "libraries/bobo/infraredCom.h"
+#include "libraries/bobo/distanceSensor.h"
 
 /* Modes */
 enum {
@@ -53,5 +59,23 @@ const int RIGHT_MOTOR_BACK=8;
 
 const int RIGHT_MOTOR_ON=10;                                  
 const int LEFT_MOTOR_ON=5;  
+
+/* obstacle definition*/
+const int NO_OBSTACLE=1;
+const int OBSTACLE = 2 ;
+const int OBSTACLE_LEFT = 3;
+const int OBSTACLE_RIGHT = 4;
+
+/* line definition*/
+const int NO_LINE=1;
+const int LINE = 2 ;
+const int LINE_LEFT = 3;
+const int LINE_RIGHT = 4;
  
+/* Setup */
+void setupBobo():
+
 #endif
+
+
+

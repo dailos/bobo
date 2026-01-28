@@ -1,4 +1,5 @@
 #include "infraredCom.h"
+#include "IRremote.h"
 
 extern int _mode_;
 extern int _state_;

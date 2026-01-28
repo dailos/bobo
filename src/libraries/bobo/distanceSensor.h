@@ -5,7 +5,7 @@
 
 void setupDistanceSensors(void);
 float getDistance(void);
-int isThereObstacle();
-int isThereALine();
+int isThereObstacle(void);
+int isThereALine(void);
 
 #endif

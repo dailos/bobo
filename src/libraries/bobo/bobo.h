@@ -1,13 +1,13 @@
-#ifndef DEFINITIONS_H
-#define DEFINITIONS_H
+#ifndef BOBO_H
+#define BOBO_H
 
 #include "Arduino.h"
-#include "libraries/bobo/motor.h"
-#include "libraries/bobo/led.h"
-#include "libraries/bobo/buzzer.h"
-#include "libraries/bobo/key.h"
-#include "libraries/bobo/infraredCom.h"
-#include "libraries/bobo/distanceSensor.h"
+#include "motor.h"
+#include "led.h"
+#include "buzzer.h"
+#include "key.h"
+#include "infraredCom.h"
+#include "distanceSensor.h"
 
 /* Modes */
 enum {
@@ -73,7 +73,7 @@ const int LINE_LEFT = 3;
 const int LINE_RIGHT = 4;
  
 /* Setup */
-void setupBobo():
+void setupBobo(void);
 
 #endif
 

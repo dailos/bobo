@@ -1,8 +1,8 @@
 #include "distanceSensor.h"
 
 /*Ultrasonic Sensor*/
-int ECHO = A1;  // Set Echo port
-int TRIG = A0; // Set Trig port
+int ECHO = A0;  // Set Echo port
+int TRIG = A1; // Set Trig port
 
 void setupDistanceSensors(void)
 {
